@@ -60,6 +60,7 @@ body {
   padding: 0;
 }
 
+/*menu*/
 #menu {
   position: relative;
   display: inline-block;
@@ -125,8 +126,16 @@ body {
   font-size: 1.2rem;
 }
 
+/*contenido*/
 .hero-title {
-  color: #3d29f1;
+  color: #ff0022;
+}
+
+.col-md-4:hover {
+  -webkit-filter: opacity(0.9);
+          filter: opacity(0.9);
+  -webkit-transform: scale(1.04);
+          transform: scale(1.04);
 }
 
 .servicios {
@@ -156,68 +165,199 @@ body {
   color: #3d29f1;
 }
 
-.base {
-  padding: 10px;
-  margin: 10px;
+.scroll-animations-example > .scrollsection {
+  padding: 10vh 10vh 10vh 10vmax;
+  min-width: 550vh;
 }
 
-.base {
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: 1fr 1fr;
-      grid-template-columns: 1fr 1fr;
-  -ms-grid-rows: 1fr 1.2fr;
-      grid-template-rows: 1fr 1.2fr;
-  grid-gap: 15px;
+.scroll-animations-example > .scrollsection > .item {
+  display: inline-block;
+  position: relative;
+  margin: 0 -30vh 0 3vh;
 }
 
-.base > div {
-  border: solid 1px;
-  padding: 5px;
-  background-color: #cccccc;
+.scroll-animations-example > .scrollsection > .item::before {
+  content: '';
+  display: inline-block;
+  vertical-align: middle;
+  height: 100%;
+}
+
+.scroll-animations-example > .scrollsection > .item.-big {
+  height: 80vh;
+  width: 60vh;
+}
+
+.scroll-animations-example > .scrollsection > .item.-big.-horizontal {
+  height: 60vh;
+  width: 80vh;
+}
+
+.scroll-animations-example > .scrollsection > .item.-normal {
+  height: 60vh;
+  width: 45vh;
+  z-index: 1;
+}
+
+.scroll-animations-example > .scrollsection > .item.-normal.-horizontal {
+  height: 45vh;
+  width: 60vh;
+}
+
+.scroll-animations-example > .scrollsection > .item.-normal:nth-of-type(3n) {
+  bottom: 5vh;
+}
+
+.scroll-animations-example > .scrollsection > .item.-normal:nth-of-type(4n) {
+  bottom: -5vh;
+}
+
+.scroll-animations-example > .scrollsection > .item.-small {
+  height: 40vh;
+  width: 30vh;
+  z-index: 2;
+}
+
+.scroll-animations-example > .scrollsection > .item.-small.-horizontal {
+  height: 30vh;
+  width: 40vh;
+}
+
+.scroll-animations-example > .scrollsection > .item.-small:nth-of-type(3n) {
+  bottom: 13vh;
+}
+
+.scroll-animations-example > .scrollsection > .item.-small:nth-of-type(4n) {
+  bottom: -13vh;
+}
+
+.scroll-animations-example > .scrollsection > .item > .image {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  -webkit-filter: grayscale(1);
+          filter: grayscale(1);
+  opacity: 0;
+  pointer-events: none;
+  -webkit-transform: translateX(0) translateY(0) scale(1);
+          transform: translateX(0) translateY(0) scale(1);
+  -webkit-transition: opacity 1s ease, -webkit-filter .3s ease, -webkit-transform 1s ease;
+  transition: opacity 1s ease, -webkit-filter .3s ease, -webkit-transform 1s ease;
+  transition: filter .3s ease, opacity 1s ease, transform 1s ease;
+  transition: filter .3s ease, opacity 1s ease, transform 1s ease, -webkit-filter .3s ease, -webkit-transform 1s ease;
+}
+
+.scroll-animations-example > .scrollsection > .item:nth-of-type(4n) > .image {
+  -webkit-transform: translateX(-30vh) translateY(-30vh) scale(0.8);
+          transform: translateX(-30vh) translateY(-30vh) scale(0.8);
+  -webkit-transition-delay: 0;
+          transition-delay: 0;
+}
+
+.scroll-animations-example > .scrollsection > .item:nth-of-type(4n - 1) > .image {
+  -webkit-transform: translateX(30vh) translateY(30vh) scale(0.8);
+          transform: translateX(30vh) translateY(30vh) scale(0.8);
+  -webkit-transition-delay: .05s;
+          transition-delay: .05s;
+}
+
+.scroll-animations-example > .scrollsection > .item:nth-of-type(4n - 2) > .image {
+  -webkit-transform: translateX(-30vh) translateY(30vh) scale(0.8);
+          transform: translateX(-30vh) translateY(30vh) scale(0.8);
+  -webkit-transition-delay: .1s;
+          transition-delay: .1s;
+}
+
+.scroll-animations-example > .scrollsection > .item:nth-of-type(4n - 3) > .image {
+  -webkit-transform: translateX(-30vh) translateY(-30vh) scale(0.8);
+          transform: translateX(-30vh) translateY(-30vh) scale(0.8);
+  -webkit-transition-delay: .15s;
+          transition-delay: .15s;
+}
+
+.scroll-animations-example > .scrollsection > .item > .image.-active {
+  -webkit-transform: translateX(0) translateY(0) scale(1);
+          transform: translateX(0) translateY(0) scale(1);
+  opacity: .8;
+  pointer-events: auto;
+  -webkit-transition: opacity 1s ease, -webkit-filter .3s ease, -webkit-transform 1s ease;
+  transition: opacity 1s ease, -webkit-filter .3s ease, -webkit-transform 1s ease;
+  transition: filter .3s ease, opacity 1s ease, transform 1s ease;
+  transition: filter .3s ease, opacity 1s ease, transform 1s ease, -webkit-filter .3s ease, -webkit-transform 1s ease;
+}
+
+.scroll-animations-example > .scrollsection > .item > .image.-clicked {
+  -webkit-transform: translateX(0) translateY(0) scale(5);
+          transform: translateX(0) translateY(0) scale(5);
+  opacity: 0;
+  pointer-events: auto;
+  -webkit-transition: opacity 1s ease, -webkit-filter .3s ease, -webkit-transform 1s ease;
+  transition: opacity 1s ease, -webkit-filter .3s ease, -webkit-transform 1s ease;
+  transition: filter .3s ease, opacity 1s ease, transform 1s ease;
+  transition: filter .3s ease, opacity 1s ease, transform 1s ease, -webkit-filter .3s ease, -webkit-transform 1s ease;
+}
+
+.scroll-animations-example > .scrollsection > .item > .image.-active:hover {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  -webkit-filter: grayscale(0);
+          filter: grayscale(0);
+  opacity: 1;
+  cursor: pointer;
+}
+
+/*promo*/
+.grid-item {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  padding: 0;
-  margin: 1px;
-}
-
-.bank {
-  width: 50%;
-  height: 70%;
-}
-
-.billetera {
-  width: 60%;
-  height: 70%;
-}
-
-.compra {
-  width: 50%;
-  height: 70%;
-}
-
-.todoenmano {
-  width: 60%;
-  height: 70%;
-}
-
-.img2 {
-  margin: 1em;
-  width: 100%;
-  height: 100%;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  background-color: #03afff;
+  border-radius: 4px;
+  -webkit-transition: -webkit-transform 0.3s ease-in-out;
+  transition: -webkit-transform 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.grid-item:hover {
+  -webkit-filter: opacity(0.9);
+          filter: opacity(0.9);
+  -webkit-transform: scale(1.04);
+          transform: scale(1.04);
+}
+
+.grid-container {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (minmax(250px, 1fr))[auto-fill];
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  grid-auto-rows: minmax(200px, auto);
+  gap: 20px;
+  padding: 20px;
+  grid-auto-flow: dense;
+}
+
+@media (min-width: 600px) {
+  .wide {
+    grid-column: span 2;
+  }
+  .tall {
+    grid-row: span 2;
+  }
 }
 
 /* forms */

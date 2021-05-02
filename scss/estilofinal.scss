@@ -47,6 +47,7 @@ body {
     padding: 0;
 }
 
+/*menu*/
 #menu {
     position: relative;
     display: inline-block;
@@ -107,9 +108,15 @@ body {
     font-size: 1.2rem; 
 }
   
+/*contenido*/
+
   .hero-title {
-    color: #3d29f1; 
+    color: #ff0022; 
 }
+.col-md-4:hover {
+    filter: opacity(0.9);
+    transform: scale(1.04);
+  }
 
 .servicios {
     display: flex;
@@ -129,56 +136,181 @@ body {
     color: #3d29f1;
 }
 
-.base {
-    padding: 10px;
-    margin: 10px;
+.scroll-animations-example {
+    > .scrollsection {
+        padding: 10vh 10vh 10vh 10vmax;
+        min-width: 550vh;
+    }
+
+    > .scrollsection > .item {
+        display: inline-block;
+        position: relative;
+        margin: 0 -30vh 0 3vh;
+    }
+
+    > .scrollsection > .item::before {
+        content: '';
+        display: inline-block;
+        vertical-align: middle;
+        height: 100%;
+    }
+
+    > .scrollsection > .item.-big {
+        height: 80vh;
+        width: 60vh;
+    }
+
+    > .scrollsection > .item.-big.-horizontal {
+        height: 60vh;
+        width: 80vh;
+    }
+
+    > .scrollsection > .item.-normal {
+        height: 60vh;
+        width: 45vh;
+        z-index: 1;
+    }
+
+    > .scrollsection > .item.-normal.-horizontal {
+        height: 45vh;
+        width: 60vh;
+    }
+
+    > .scrollsection > .item.-normal:nth-of-type(3n) {
+        bottom: 5vh;
+    }
+
+    > .scrollsection > .item.-normal:nth-of-type(4n) {
+        bottom: -5vh;
+    }
+
+    > .scrollsection > .item.-small {
+        height: 40vh;
+        width: 30vh;
+        z-index: 2;
+    }
+
+    > .scrollsection > .item.-small.-horizontal {
+        height: 30vh;
+        width: 40vh;
+    }
+
+    > .scrollsection > .item.-small:nth-of-type(3n) {
+        bottom: 13vh;
+    }
+
+    > .scrollsection > .item.-small:nth-of-type(4n) {
+        bottom: -13vh;
+    }
+
+    > .scrollsection > .item > .image {
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        filter: grayscale(1);
+        opacity: 0;
+        pointer-events: none;
+        transform: translateX(0) translateY(0) scale(1);
+        transition: filter .3s ease,
+            opacity 1s ease,
+            transform 1s ease;
+    }
+
+    > .scrollsection > .item:nth-of-type(4n) > .image {
+        transform: translateX(-30vh) translateY(-30vh) scale(.8);
+        transition-delay: 0;
+    }
+
+    > .scrollsection > .item:nth-of-type(4n - 1) > .image {
+        transform: translateX(30vh) translateY(30vh) scale(.8);
+        transition-delay: .05s;
+    }
+
+    > .scrollsection > .item:nth-of-type(4n - 2) > .image {
+        transform: translateX(-30vh) translateY(30vh) scale(.8);
+        transition-delay: .1s;
+    }
+
+    > .scrollsection > .item:nth-of-type(4n - 3) > .image {
+        transform: translateX(-30vh) translateY(-30vh) scale(.8);
+        transition-delay: .15s;
+    }
+
+    > .scrollsection > .item > .image.-active {
+        transform: translateX(0) translateY(0) scale(1);
+        opacity: .8;
+        pointer-events: auto;
+        transition: filter .3s ease,
+            opacity 1s ease,
+            transform 1s ease;
+    }
+
+    > .scrollsection > .item > .image.-clicked {
+        transform: translateX(0) translateY(0) scale(5);
+        opacity: 0;
+        pointer-events: auto;
+        transition: filter .3s ease,
+            opacity 1s ease,
+            transform 1s ease;
+    }
+
+    > .scrollsection > .item > .image.-active:hover {
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        filter: grayscale(0);
+        opacity: 1;
+        cursor: pointer;
+    }
 }
 
-.base {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1.2fr;
-    grid-gap: 15px;
-}
 
-.base > div {
-    border: solid 1px;
-    padding: 5px;
-    background-color: #cccccc;
+
+
+/*promo*/
+
+.grid-item {
     display: flex;
-    justify-content: center;
     align-items: center;
-    padding: 0;
-    margin: 1px;
-}
-
-.bank {
-    width: 50%;
-    height: 70%;
-}
-
-.billetera {
-    width: 60%;
-    height: 70%;
-}
-
-.compra {
-    width: 50%;
-    height: 70%;
-}
-
-.todoenmano {
-    width: 60%;
-    height: 70%;
-}
-
-.img2 {
-    margin: 1em;
-    width: 100%;
-    height: 100%;
     justify-content: center;
-    align-items: center;
-}
+  
+    background-color: #03afff;
+    border-radius: 4px;
+    transition: transform 0.3s ease-in-out;
+  
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  
+  .grid-item:hover {
+    filter: opacity(0.9);
+    transform: scale(1.04);
+  }
+  
+  .grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    grid-auto-rows: minmax(200px, auto);
+    gap: 20px;
+    padding: 20px;
+    grid-auto-flow: dense;
+  }
+  
+  @media (min-width: 600px) {
+    .wide {
+      grid-column: span 2;
+    }
+  
+    .tall {
+      grid-row: span 2;
+    }
+  }
+  
 
 /* forms */
 
